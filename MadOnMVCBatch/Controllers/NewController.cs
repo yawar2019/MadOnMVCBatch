@@ -9,7 +9,7 @@ namespace MadOnMVCBatch.Controllers
 {
     public class NewController : Controller
     {
-        // GET: New Work for nidhi is created on 21-03-2022
+        // GET: New Work for vaishnavi is created on 21-03-2022
         public string Index()
         {
             return "india is Nos "+ Index2();
