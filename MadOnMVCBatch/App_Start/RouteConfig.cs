@@ -12,12 +12,24 @@ namespace MadOnMVCBatch
         public static void RegisterRoutes(RouteCollection routes)
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
+            routes.MapMvcAttributeRoutes();
 
             routes.MapRoute(
-                name: "Default",
-                url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+                name: "Nidhi",
+                url: "india/Army",
+                defaults: new { controller = "new", action = "Index3", id = UrlParameter.Optional }
             );
+
+           
+
+
+            routes.MapRoute(
+               name: "Default",
+               url: "{controller}/{action}/{id}",
+               defaults: new { controller = "new", action = "Index4", id = UrlParameter.Optional }
+           );
+
+
         }
     }
 }
