@@ -1,0 +1,23 @@
+﻿@model List<MadOnMVCBatch.Models.EmployeeModel>
+@{
+    ViewBag.Title = "SendModelData2";
+}
+
+<h2>SendModelData2</h2>
+
+
+<table>
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Salary</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.EmpId</td>
+            <td>@item.EmpName</td>
+            <td>@item.EmpSalary</td>
+        </tr>
+    }
+</table>
