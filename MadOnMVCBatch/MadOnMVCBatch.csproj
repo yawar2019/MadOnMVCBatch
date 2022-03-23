@@ -167,6 +167,10 @@
     <Content Include="Views\New\SendData.cshtml" />
     <Content Include="Views\New\SendModelData2.cshtml" />
     <Content Include="Views\New\SendModelData5.cshtml" />
+    <Content Include="Views\Shared\_myPartialView.cshtml" />
+    <Content Include="Views\New\getMyPartialView.cshtml" />
+    <Content Include="Views\New\getMyPartialView2.cshtml" />
+    <Content Include="Views\Shared\_DepatmentPartialView.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -1,0 +1,16 @@
+﻿
+@model  MadOnMVCBatch.Models.EmpDept
+
+<table class="table table-bordered table-condensed">
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+    </tr>
+    @foreach (var item in Model.dept)
+    {
+        <tr>
+            <td>@item.DeptId</td>
+            <td>@item.DeptName</td>
+        </tr>
+    }
+</table>

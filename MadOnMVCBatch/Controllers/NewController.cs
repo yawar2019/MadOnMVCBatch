@@ -117,9 +117,7 @@ namespace MadOnMVCBatch.Controllers
         public ViewResult SendModelData5()
         {
             List<EmployeeModel> EmployeeList = new List<EmployeeModel>();
-
-
-
+            
             EmployeeModel emp = new EmployeeModel();
             emp.EmpId = 1;
             emp.EmpName = "Gaytri";
@@ -170,6 +168,57 @@ namespace MadOnMVCBatch.Controllers
         public RedirectResult SendModelData()
         {
             return Redirect("~/New/SendModelData5");//MVC URL
+        }
+
+        public ViewResult getMyPartialView()
+        {
+            return View();
+        }
+
+        public ViewResult getMyPartialView2()
+        {
+            List<EmployeeModel> EmployeeList = new List<EmployeeModel>();
+
+            EmployeeModel emp = new EmployeeModel();
+            emp.EmpId = 1;
+            emp.EmpName = "Gaytri";
+            emp.EmpSalary = 234561;
+
+            EmployeeModel emp1 = new EmployeeModel();
+            emp1.EmpId = 2;
+            emp1.EmpName = "Nidhi";
+            emp1.EmpSalary = 98653;
+
+            EmployeeModel emp3 = new EmployeeModel();
+            emp3.EmpId = 3;
+            emp3.EmpName = "srinivas";
+            emp3.EmpSalary = 99653;
+
+
+            DepartmentModel dept = new Models.DepartmentModel();
+            dept.DeptId = 1;
+            dept.DeptName = "IT";
+            DepartmentModel dept1 = new Models.DepartmentModel();
+            dept1.DeptId = 2;
+            dept1.DeptName = "Hr";
+
+
+            EmployeeList.Add(emp);
+            EmployeeList.Add(emp1);
+            EmployeeList.Add(emp3);
+
+
+            List<DepartmentModel> listdept = new List<DepartmentModel>();
+            listdept.Add(dept);
+            listdept.Add(dept1);
+
+
+            EmpDept eobj = new EmpDept();
+            eobj.emp = EmployeeList;
+            eobj.dept = listdept;
+
+
+            return View(eobj);
         }
     }
 }
