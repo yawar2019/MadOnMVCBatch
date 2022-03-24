@@ -29,4 +29,11 @@
 
 
 
-@Html.Partial("_DepatmentPartialView")
+@{var s=Html.Partial("_DepatmentPartialView");
+    if (1 == 1)
+    {
+        @s
+    }
+
+    }
+@{Html.RenderPartial("_DepatmentPartialView");}

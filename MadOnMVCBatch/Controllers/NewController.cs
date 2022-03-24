@@ -220,5 +220,20 @@ namespace MadOnMVCBatch.Controllers
 
             return View(eobj);
         }
+
+        public FileResult GetMeFile()
+        {
+            return File("~/Web.config","text");
+        }
+
+        public FileResult GetMeFile2()
+        {
+            return File("~/Web.config", "application/xml", "Web.config");
+        }
+
+        public FileResult GetMeFile3()
+        {
+            return File("~/ActionResult.pdf", "application/pdf", "nidhi");
+        }
     }
 }
