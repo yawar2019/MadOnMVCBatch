@@ -1,0 +1,21 @@
+﻿
+@{
+    ViewBag.Title = "GetJsonResultView";
+}
+
+<h2>GetJsonResultView</h2>
+
+<input type="text" id="EmpName" value="" />
+
+<script src="~/scripts/jquery-1.10.2.min.js"></script>
+<script>
+    $.ajax({
+        url: "@Url.Action("GetJson","New")",
+        dataType: "json",
+        type: "Get",
+    success: function (result) {
+
+        $('#EmpName').val(result.EmpName);
+    }
+    })
+</script>

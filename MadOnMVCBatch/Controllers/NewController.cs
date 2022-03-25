@@ -12,7 +12,7 @@ namespace MadOnMVCBatch.Controllers
         // GET: New Work for vaishnavi is created on 21-03-2022
         public string Index()
         {
-            return "india is Nos "+ Index2();
+            return "india is Nos " + Index2();
         }
         [NonAction]
         public int Index2()
@@ -32,7 +32,7 @@ namespace MadOnMVCBatch.Controllers
 
         public string Index5(string id)//new/index5/45?name=james
         {
-            return "My Employee Id is "+id+" & name is "+Request.QueryString["name"];
+            return "My Employee Id is " + id + " & name is " + Request.QueryString["name"];
         }
 
         [Route("Airliness/Employees")]
@@ -47,13 +47,13 @@ namespace MadOnMVCBatch.Controllers
 
         public ActionResult SendDataToView()
         {
-            ViewBag.Name ="Gaytri";
+            ViewBag.Name = "Gaytri";
             return View();
         }
         //ViewBag is Dynamic property which is used to store any type of information as type is 
         //dynamic
         //it also help us to carry our information from controller to view
-        
+
 
         public ActionResult SendDataToView2()
         {
@@ -70,7 +70,7 @@ namespace MadOnMVCBatch.Controllers
         public ActionResult SendDataToView3()
         {
             List<EmployeeModel> EmployeeList = new List<EmployeeModel>();
-            
+
 
 
             EmployeeModel emp = new EmployeeModel();
@@ -95,7 +95,7 @@ namespace MadOnMVCBatch.Controllers
 
 
             ViewBag.listemp = EmployeeList;
-           
+
 
             return View();
         }
@@ -109,7 +109,7 @@ namespace MadOnMVCBatch.Controllers
             emp.EmpSalary = 234561;
 
 
-           // Object model = emp;
+            // Object model = emp;
 
             return View(emp);
         }
@@ -117,7 +117,7 @@ namespace MadOnMVCBatch.Controllers
         public ViewResult SendModelData5()
         {
             List<EmployeeModel> EmployeeList = new List<EmployeeModel>();
-            
+
             EmployeeModel emp = new EmployeeModel();
             emp.EmpId = 1;
             emp.EmpName = "Gaytri";
@@ -141,7 +141,7 @@ namespace MadOnMVCBatch.Controllers
             dept1.DeptId = 2;
             dept1.DeptName = "Hr";
 
-            
+
             EmployeeList.Add(emp);
             EmployeeList.Add(emp1);
             EmployeeList.Add(emp3);
@@ -223,7 +223,7 @@ namespace MadOnMVCBatch.Controllers
 
         public FileResult GetMeFile()
         {
-            return File("~/Web.config","text");
+            return File("~/Web.config", "text");
         }
 
         public FileResult GetMeFile2()
@@ -234,6 +234,66 @@ namespace MadOnMVCBatch.Controllers
         public FileResult GetMeFile3()
         {
             return File("~/ActionResult.pdf", "application/pdf", "nidhi");
+        }
+
+        public JsonResult GetMeJsonInfo()
+        {
+            List<EmployeeModel> EmployeeList = new List<EmployeeModel>();
+
+            EmployeeModel emp = new EmployeeModel();
+            emp.EmpId = 1;
+            emp.EmpName = "Gaytri";
+            emp.EmpSalary = 234561;
+
+            EmployeeModel emp1 = new EmployeeModel();
+            emp1.EmpId = 2;
+            emp1.EmpName = "Nidhi";
+            emp1.EmpSalary = 98653;
+
+            EmployeeModel emp3 = new EmployeeModel();
+            emp3.EmpId = 3;
+            emp3.EmpName = "srinivas";
+            emp3.EmpSalary = 99653;
+
+
+            DepartmentModel dept = new Models.DepartmentModel();
+            dept.DeptId = 1;
+            dept.DeptName = "IT";
+            DepartmentModel dept1 = new Models.DepartmentModel();
+            dept1.DeptId = 2;
+            dept1.DeptName = "Hr";
+
+
+            EmployeeList.Add(emp);
+            EmployeeList.Add(emp1);
+            EmployeeList.Add(emp3);
+
+
+            List<DepartmentModel> listdept = new List<DepartmentModel>();
+            listdept.Add(dept);
+            listdept.Add(dept1);
+
+
+            EmpDept eobj = new EmpDept();
+            eobj.emp = EmployeeList;
+            eobj.dept = listdept;
+
+            return Json(eobj, JsonRequestBehavior.AllowGet);
+
+        }
+
+        public JsonResult GetJson()
+        {
+            EmployeeModel emp3 = new EmployeeModel();
+            emp3.EmpId = 3;
+            emp3.EmpName = "srinivas";
+            emp3.EmpSalary = 99653;
+            return Json(emp3, JsonRequestBehavior.AllowGet);
+        }
+
+        public ActionResult GetJsonResultView()
+        {
+            return View();
         }
     }
 }

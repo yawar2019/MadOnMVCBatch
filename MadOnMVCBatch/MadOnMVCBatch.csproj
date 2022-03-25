@@ -172,6 +172,7 @@
     <Content Include="Views\New\getMyPartialView.cshtml" />
     <Content Include="Views\New\getMyPartialView2.cshtml" />
     <Content Include="Views\Shared\_DepatmentPartialView.cshtml" />
+    <Content Include="Views\New\GetJsonResultView.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
