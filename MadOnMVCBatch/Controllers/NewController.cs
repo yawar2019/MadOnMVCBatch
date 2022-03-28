@@ -282,7 +282,16 @@ namespace MadOnMVCBatch.Controllers
 
         }
 
-        public JsonResult GetJson()
+        public JsonResult GetJson(int ? id)
+        {
+            EmployeeModel emp3 = new EmployeeModel();
+            emp3.EmpId = 3;
+            emp3.EmpName = "srinivas";
+            emp3.EmpSalary = 99653;
+            return Json(emp3, JsonRequestBehavior.AllowGet);
+        }
+
+        public JsonResult GetJson2(EmployeeModel emp)
         {
             EmployeeModel emp3 = new EmployeeModel();
             emp3.EmpId = 3;
@@ -294,6 +303,22 @@ namespace MadOnMVCBatch.Controllers
         public ActionResult GetJsonResultView()
         {
             return View();
+        }
+
+        public RedirectToRouteResult  getRediectToAction()
+        {
+            return RedirectToAction("GetJson","New",new { id = 1 });
+        }
+
+        public RedirectToRouteResult getRediectToAction2()
+        {
+            EmployeeModel emp3 = new EmployeeModel();
+            emp3.EmpId = 3;
+            emp3.EmpName = "jawahar";
+            emp3.EmpSalary = 99653;
+
+
+            return RedirectToAction("GetJson2", "New", emp3);
         }
     }
 }
