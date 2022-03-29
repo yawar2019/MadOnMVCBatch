@@ -5,6 +5,8 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MadOnMVCBatch", "MadOnMVCBatch\MadOnMVCBatch.csproj", "{4F5A6AC3-DD01-4FD4-A35B-930D7B662F69}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdoNetExample", "AdoNetExample\AdoNetExample.csproj", "{30ABBB45-6E0A-4E83-95AB-1947CC4E4504}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{4F5A6AC3-DD01-4FD4-A35B-930D7B662F69}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4F5A6AC3-DD01-4FD4-A35B-930D7B662F69}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4F5A6AC3-DD01-4FD4-A35B-930D7B662F69}.Release|Any CPU.Build.0 = Release|Any CPU
+		{30ABBB45-6E0A-4E83-95AB-1947CC4E4504}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{30ABBB45-6E0A-4E83-95AB-1947CC4E4504}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{30ABBB45-6E0A-4E83-95AB-1947CC4E4504}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{30ABBB45-6E0A-4E83-95AB-1947CC4E4504}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

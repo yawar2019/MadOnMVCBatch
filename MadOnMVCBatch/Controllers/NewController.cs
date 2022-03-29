@@ -320,5 +320,11 @@ namespace MadOnMVCBatch.Controllers
 
             return RedirectToAction("GetJson2", "New", emp3);
         }
+
+        public RedirectToRouteResult getRediectToAction4()
+        {
+           
+            return RedirectToRoute("Nidhi");
+        }
     }
 }
