@@ -1,0 +1,17 @@
+﻿@model AdoNetExample.Models.EmployeeModel 
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h1>Are you sure you want to Delete Record?</h1>
+
+@Model.EmpId<br />
+@Model.EmpName<br />
+@Model.EmpSalary<br />
+
+
+<form action="~/Home/Delete/@Model.EmpId" method="post">
+    <input type="submit"  value="Delete" class="btn btn-danger" />
+</form>
