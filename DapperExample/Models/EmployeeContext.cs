@@ -15,7 +15,6 @@ namespace DapperExample.Models
         {
             var result = con.Query<EmployeeModel>("SELECT * FROM [dbo].[employeeDetails]").ToList();
             return result;
-
         }
 
     }
