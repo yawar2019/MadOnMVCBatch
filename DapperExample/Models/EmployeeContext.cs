@@ -13,9 +13,41 @@ namespace DapperExample.Models
 
         public List<EmployeeModel> GetEmployees()
         {
-            var result = con.Query<EmployeeModel>("SELECT * FROM [dbo].[employeeDetails]").ToList();
+            //SELECT * FROM [dbo].[employeeDetails]
+            var result = con.Query<EmployeeModel>("sp_employee", commandType: CommandType.StoredProcedure).ToList();
             return result;
         }
 
+        public int SaveEmployee(EmployeeModel emp)
+        {
+            var param = new DynamicParameters();
+            param.Add("@EmpName", emp.EmpName);
+            param.Add("@EmpSalary", emp.EmpSalary);
+
+            int result = con.Execute("sp_CreateEmployee",param:param,commandType:CommandType.StoredProcedure);
+            return result;
+        }
+
+        public EmployeeModel GetEmployeeById(int? id)
+        {
+            var param = new DynamicParameters();
+            param.Add("@empid", id);
+
+            var result = con.QuerySingleOrDefault<EmployeeModel>("spr_getEmployeeDetailsbyId", param: param, commandType: CommandType.StoredProcedure);
+            return result;
+        }
+
+        public int UpdateEmployee(EmployeeModel emp)
+        {
+            var param = new DynamicParameters();
+            param.Add("@EmpId", emp.EmpId);
+            param.Add("@EmpName", emp.EmpName);
+            param.Add("@EmpSalary", emp.EmpSalary);
+
+            int result = con.Execute("spr_updateEmployeeDetails", param: param, commandType: CommandType.StoredProcedure);
+            return result;
+        }
+
+        
     }
 }
