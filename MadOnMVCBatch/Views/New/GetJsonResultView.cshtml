@@ -4,19 +4,20 @@
 }
 
 <h2>GetJsonResultView</h2>
-
 <input type="text" id="EmpName" value="" />
 
 <script src="~/scripts/jquery-1.10.2.min.js"></script>
 <script>
-    $.ajax({
-        url: "@Url.Action("GetJson","New")",
-        dataType: "json",
-        type: "Get",
-        //data:{id:1,name:'fan'},
-    success: function (result) {
+    function fun(id) {
+        $.ajax({
+            url: "abv/asdf?a="+id,
+            dataType: "json",
+            type: "Get",
+            //data:{id:1,name:'fan'},
+            success: function (result) {
 
-        $('#EmpName').val(result.EmpName);
+                $('#EmpName').val(result.EmpName);
+            }
+        })
     }
-    })
 </script>
