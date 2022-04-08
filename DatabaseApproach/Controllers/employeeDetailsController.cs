@@ -15,6 +15,29 @@ namespace DatabaseApproach.Controllers
         private EmployeeEntities db = new EmployeeEntities();
 
         // GET: employeeDetails
+
+        public ActionResult GetEmpDeptName()
+        {
+            var result = (from e in db.employeeDetails
+                          join
+                          d in db.Departments
+                          on e.DeptId equals d.DeptId
+                          select new EmpDeptModel
+                          {
+                              EmpName=e.EmpName,
+                              EmpSalary=e.EmpSalary,
+                              DeptName = d.DeptName,
+
+                          }
+                        ).ToList();
+            return View(result);
+        }
+
+        public ActionResult GetDatafromstroreproc()
+        {
+            return View(db.sp_employee().ToList());
+        }
+
         public ActionResult Index()
         {
             return View(db.employeeDetails.ToList());
@@ -56,6 +79,14 @@ namespace DatabaseApproach.Controllers
             }
 
             return View(employeeDetail);
+        }
+
+        [HttpPost]
+        public ActionResult StoreProcCreate(employeeDetail emp)
+        {
+            db.sp_CreateEmployee(emp.EmpName, emp.EmpSalary);
+            return RedirectToAction("Index");
+
         }
 
         // GET: employeeDetails/Edit/5

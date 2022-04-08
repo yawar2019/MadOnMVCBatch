@@ -130,6 +130,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
+    <Content Include="Database\08_04_2022_script.sql" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Models\EmployeeModel.Context.tt">
@@ -166,6 +167,10 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Department.cs">
+      <DependentUpon>EmployeeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EmpDeptModel.cs" />
     <Compile Include="Models\employeeDetail.cs">
       <DependentUpon>EmployeeModel.tt</DependentUpon>
     </Compile>
@@ -183,6 +188,9 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>EmployeeModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sp_employee_Result.cs">
+      <DependentUpon>EmployeeModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -207,6 +215,8 @@
     <Content Include="Views\employeeDetails\Edit.cshtml" />
     <Content Include="Views\employeeDetails\Index.cshtml" />
     <Content Include="scripts\jquery-1.10.2.min.map" />
+    <Content Include="Views\employeeDetails\GetDatafromstroreproc.cshtml" />
+    <Content Include="Views\employeeDetails\GetEmpDeptName.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
