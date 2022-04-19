@@ -7,7 +7,7 @@
 
 
 <form action="~/Employee/Edit" method="post">
-
+    <input type="hidden" name="EmpId" value="@Model.EmpId" />
     <label>EmpName</label>
     <input type="text" name="EmpName" value="@Model.EmpName" class="form-control" /><br />
 
