@@ -1,0 +1,16 @@
+﻿@model MadOnMVCBatch.Models.SECTION1
+@{
+    ViewBag.Title = "GetHtmlHelperExample";
+    Layout = "~/Views/Shared/_MyLayout.cshtml";
+}
+
+<h2>GetHtmlHelperExample</h2>
+
+
+
+@Html.DropDownList("Stock")
+@Html.DropDownList("Stock2",  (IEnumerable<SelectListItem>)ViewBag.Stock)
+
+@Html.DropDownListFor(x=>x.SecId,(IEnumerable<SelectListItem>)ViewBag.Stock)
+
+

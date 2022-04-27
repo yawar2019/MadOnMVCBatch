@@ -1,0 +1,673 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="eTillModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Country">
+          <Key>
+            <PropertyRef Name="CountryId" />
+          </Key>
+          <Property Name="CountryId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CountryName" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="SECTION1">
+          <Key>
+            <PropertyRef Name="SecId" />
+          </Key>
+          <Property Name="SecId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CODE" Type="nvarchar" MaxLength="5" Nullable="false" />
+          <Property Name="NAME" Type="nvarchar" MaxLength="40" Nullable="false" />
+          <Property Name="NAME1" Type="nvarchar" MaxLength="40" />
+          <Property Name="PU_NO" Type="money" />
+          <Property Name="PU_DESC" Type="nvarchar" MaxLength="40" />
+        </EntityType>
+        <EntityType Name="State">
+          <Key>
+            <PropertyRef Name="StateId" />
+          </Key>
+          <Property Name="StateId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StateName" Type="varchar" MaxLength="50" />
+          <Property Name="CountryId" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'eTill.dbo.StockM3' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="StockM3">
+          <Key>
+            <PropertyRef Name="ITEMCODE" />
+          </Key>
+          <Property Name="ITEMCODE" Type="nvarchar" MaxLength="15" Nullable="false" />
+          <Property Name="DESCRPTON1" Type="nvarchar" MaxLength="30" />
+          <Property Name="DESCRPTON2" Type="nvarchar" MaxLength="30" />
+          <Property Name="SUPPLIER" Type="nvarchar" MaxLength="15" />
+          <Property Name="Q_IN_HAND" Type="money" />
+          <Property Name="COST" Type="money" />
+          <Property Name="STD_COST" Type="money" />
+          <Property Name="LAST_COST" Type="money" />
+          <Property Name="TAX_YN" Type="nvarchar" MaxLength="1" />
+          <Property Name="TAX1" Type="money" />
+          <Property Name="MUP" Type="nvarchar" MaxLength="1" />
+          <Property Name="B_RETAIL" Type="money" />
+          <Property Name="RETAIL" Type="money" />
+          <Property Name="NET" Type="nvarchar" MaxLength="1" />
+          <Property Name="MAX_DISC" Type="money" />
+          <Property Name="PRICEA" Type="money" />
+          <Property Name="PRICEB" Type="money" />
+          <Property Name="PRICEC" Type="money" />
+          <Property Name="PRICED" Type="money" />
+          <Property Name="PRICEE" Type="money" />
+          <Property Name="SECTION1" Type="nvarchar" MaxLength="20" />
+          <Property Name="SECTION2" Type="nvarchar" MaxLength="20" />
+          <Property Name="SECTION3" Type="nvarchar" MaxLength="20" />
+          <Property Name="SECTION4" Type="nvarchar" MaxLength="20" />
+          <Property Name="SECTION5" Type="nvarchar" MaxLength="20" />
+          <Property Name="TYPE" Type="nvarchar" MaxLength="1" />
+          <Property Name="CASE_QTY" Type="money" />
+          <Property Name="WRAP_QTY" Type="money" />
+          <Property Name="RO_LEVEL" Type="money" />
+          <Property Name="MAX_OHAND" Type="money" />
+          <Property Name="NEG_POS" Type="nvarchar" MaxLength="1" />
+          <Property Name="ITEM1" Type="nvarchar" MaxLength="15" />
+          <Property Name="ITEM2" Type="nvarchar" MaxLength="15" />
+          <Property Name="LAST_PCHS" Type="datetime" />
+          <Property Name="LAST_ISSU" Type="datetime" />
+          <Property Name="SDATE_FROM" Type="varchar" MaxLength="8" />
+          <Property Name="SDATE_TO" Type="varchar" MaxLength="8" />
+          <Property Name="SPCL_OQTY" Type="nvarchar" MaxLength="1" />
+          <Property Name="SPCL_QTY" Type="money" />
+          <Property Name="SPCL_EXCL" Type="money" />
+          <Property Name="SPCL_INCL" Type="money" />
+          <Property Name="E_DATE" Type="datetime" />
+          <Property Name="TERMINAL" Type="nvarchar" MaxLength="2" />
+          <Property Name="USER" Type="nvarchar" MaxLength="25" />
+          <Property Name="OH_CORDER" Type="money" />
+          <Property Name="OH_SORDER" Type="money" />
+          <Property Name="T1_RATE" Type="money" />
+          <Property Name="OPEN_BAL" Type="money" />
+          <Property Name="BOM_CAT" Type="nvarchar" MaxLength="2" />
+          <Property Name="STSPEC" Type="nvarchar" MaxLength="30" />
+          <Property Name="TbField1" Type="money" />
+          <Property Name="TbField2" Type="money" />
+          <Property Name="TbField3" Type="money" />
+          <Property Name="TempOH" Type="money" />
+          <Property Name="fel1" Type="money" />
+          <Property Name="fel2" Type="money" />
+          <Property Name="fel3" Type="money" />
+          <Property Name="SPCL_SOLD" Type="money" />
+          <Property Name="SP1" Type="nvarchar" MaxLength="1" />
+          <Property Name="SP2" Type="nvarchar" MaxLength="1" />
+          <Property Name="SP3" Type="nvarchar" MaxLength="1" />
+          <Property Name="SP4" Type="nvarchar" MaxLength="1" />
+          <Property Name="SP5" Type="nvarchar" MaxLength="1" />
+          <Property Name="SP6" Type="nvarchar" MaxLength="1" />
+          <Property Name="SP7" Type="nvarchar" MaxLength="1" />
+          <Property Name="WART_START" Type="nvarchar" MaxLength="8" />
+          <Property Name="WART_END" Type="nvarchar" MaxLength="8" />
+          <Property Name="WART_PRD" Type="money" />
+          <Property Name="SEQ_NO" Type="money" />
+          <Property Name="LAST_ORDER" Type="nvarchar" MaxLength="8" />
+          <Property Name="LAST_SUPP" Type="nvarchar" MaxLength="15" />
+          <Property Name="ORD_QTY" Type="money" />
+          <Property Name="ORD_COST" Type="money" />
+          <Property Name="SPCL_COUNTER" Type="nvarchar" MaxLength="8" />
+          <Property Name="EXPORT_CODE" Type="nvarchar" MaxLength="15" />
+          <Property Name="LOC_CODE" Type="nvarchar" MaxLength="4" />
+          <Property Name="LOC_YN" Type="nvarchar" MaxLength="1" />
+          <Property Name="LOC_START" Type="nvarchar" MaxLength="8" />
+          <Property Name="LOC_ENDS" Type="nvarchar" MaxLength="8" />
+          <Property Name="GL_CODE" Type="nvarchar" MaxLength="15" />
+          <Property Name="SHELF_LIFE" Type="money" />
+          <Property Name="CASH_DEFDIS" Type="money" />
+          <Property Name="DECML_ITEMYN" Type="nvarchar" MaxLength="1" />
+          <Property Name="CASH_ITEMYN" Type="nvarchar" MaxLength="1" />
+          <Property Name="CRDT_ITEMYN" Type="nvarchar" MaxLength="1" />
+          <Property Name="CASH_QUOTYN" Type="nvarchar" MaxLength="1" />
+          <Property Name="CRDT_QUOTYN" Type="nvarchar" MaxLength="1" />
+          <Property Name="NEG_ITEMYN" Type="nvarchar" MaxLength="1" />
+          <Property Name="MST_ITEM" Type="nvarchar" MaxLength="15" />
+          <Property Name="MST_QTY" Type="money" />
+          <Property Name="SPCLTIME_FROM" Type="money" />
+          <Property Name="SPCLTIME_TO" Type="money" />
+          <Property Name="CHILDAT_SALEYN" Type="nvarchar" MaxLength="1" />
+          <Property Name="CHILDAT_GRVYN" Type="nvarchar" MaxLength="1" />
+          <Property Name="PRNT_QTY" Type="money" />
+          <Property Name="ITEM_PRNTYN" Type="nvarchar" MaxLength="1" />
+          <Property Name="ITEM_PRNT" Type="nvarchar" MaxLength="15" />
+          <Property Name="ITEM_CODE1" Type="nvarchar" MaxLength="15" />
+          <Property Name="LINK_QTY" Type="money" />
+          <Property Name="PLUITEM_YN" Type="nvarchar" MaxLength="1" />
+          <Property Name="COMBO_YN" Type="nvarchar" MaxLength="1" />
+          <Property Name="SUPP_REF" Type="nvarchar" MaxLength="20" />
+          <Property Name="INV_CASEQTY" Type="money" />
+          <Property Name="PU_NO" Type="money" />
+          <Property Name="PU_desc" Type="nvarchar" MaxLength="10" />
+          <Property Name="LAST_MONDATE" Type="nvarchar" MaxLength="8" />
+          <Property Name="LAST_YEARDATE" Type="nvarchar" MaxLength="8" />
+          <Property Name="GL_SALES" Type="nvarchar" MaxLength="15" />
+          <Property Name="GL_COSAL" Type="nvarchar" MaxLength="15" />
+          <Property Name="GL_PUCHS" Type="nvarchar" MaxLength="15" />
+          <Property Name="SQM_QTY" Type="money" />
+          <Property Name="BUY_QTY" Type="money" />
+          <Property Name="GIVE_QTY" Type="money" />
+          <Property Name="DEDUCT_CODE" Type="nvarchar" MaxLength="15" />
+          <Property Name="DEDUCT_QTY" Type="money" />
+          <Property Name="SERLNO_YN" Type="nvarchar" MaxLength="1" />
+          <Property Name="ITEM_CODE2" Type="nvarchar" MaxLength="15" />
+          <Property Name="ITEM_CODE3" Type="nvarchar" MaxLength="15" />
+          <Property Name="ITEM_CODE4" Type="nvarchar" MaxLength="15" />
+          <Property Name="ITEM_CODE5" Type="nvarchar" MaxLength="15" />
+          <Property Name="PWD_MUP" Type="money" />
+        </EntityType>
+        <Association Name="FK_SECTION1_SECTION1">
+          <End Role="SECTION1" Type="Self.SECTION1" Multiplicity="1" />
+          <End Role="SECTION11" Type="Self.SECTION1" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="SECTION1">
+              <PropertyRef Name="SecId" />
+            </Principal>
+            <Dependent Role="SECTION11">
+              <PropertyRef Name="SecId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="eTillModelStoreContainer">
+          <EntitySet Name="Country" EntityType="Self.Country" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SECTION1" EntityType="Self.SECTION1" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="State" EntityType="Self.State" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StockM3" EntityType="Self.StockM3" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [StockM3].[ITEMCODE] AS [ITEMCODE], 
+    [StockM3].[DESCRPTON1] AS [DESCRPTON1], 
+    [StockM3].[DESCRPTON2] AS [DESCRPTON2], 
+    [StockM3].[SUPPLIER] AS [SUPPLIER], 
+    [StockM3].[Q_IN_HAND] AS [Q_IN_HAND], 
+    [StockM3].[COST] AS [COST], 
+    [StockM3].[STD_COST] AS [STD_COST], 
+    [StockM3].[LAST_COST] AS [LAST_COST], 
+    [StockM3].[TAX_YN] AS [TAX_YN], 
+    [StockM3].[TAX1] AS [TAX1], 
+    [StockM3].[MUP] AS [MUP], 
+    [StockM3].[B_RETAIL] AS [B_RETAIL], 
+    [StockM3].[RETAIL] AS [RETAIL], 
+    [StockM3].[NET] AS [NET], 
+    [StockM3].[MAX_DISC] AS [MAX_DISC], 
+    [StockM3].[PRICEA] AS [PRICEA], 
+    [StockM3].[PRICEB] AS [PRICEB], 
+    [StockM3].[PRICEC] AS [PRICEC], 
+    [StockM3].[PRICED] AS [PRICED], 
+    [StockM3].[PRICEE] AS [PRICEE], 
+    [StockM3].[SECTION1] AS [SECTION1], 
+    [StockM3].[SECTION2] AS [SECTION2], 
+    [StockM3].[SECTION3] AS [SECTION3], 
+    [StockM3].[SECTION4] AS [SECTION4], 
+    [StockM3].[SECTION5] AS [SECTION5], 
+    [StockM3].[TYPE] AS [TYPE], 
+    [StockM3].[CASE_QTY] AS [CASE_QTY], 
+    [StockM3].[WRAP_QTY] AS [WRAP_QTY], 
+    [StockM3].[RO_LEVEL] AS [RO_LEVEL], 
+    [StockM3].[MAX_OHAND] AS [MAX_OHAND], 
+    [StockM3].[NEG_POS] AS [NEG_POS], 
+    [StockM3].[ITEM1] AS [ITEM1], 
+    [StockM3].[ITEM2] AS [ITEM2], 
+    [StockM3].[LAST_PCHS] AS [LAST_PCHS], 
+    [StockM3].[LAST_ISSU] AS [LAST_ISSU], 
+    [StockM3].[SDATE_FROM] AS [SDATE_FROM], 
+    [StockM3].[SDATE_TO] AS [SDATE_TO], 
+    [StockM3].[SPCL_OQTY] AS [SPCL_OQTY], 
+    [StockM3].[SPCL_QTY] AS [SPCL_QTY], 
+    [StockM3].[SPCL_EXCL] AS [SPCL_EXCL], 
+    [StockM3].[SPCL_INCL] AS [SPCL_INCL], 
+    [StockM3].[E_DATE] AS [E_DATE], 
+    [StockM3].[TERMINAL] AS [TERMINAL], 
+    [StockM3].[USER] AS [USER], 
+    [StockM3].[OH_CORDER] AS [OH_CORDER], 
+    [StockM3].[OH_SORDER] AS [OH_SORDER], 
+    [StockM3].[T1_RATE] AS [T1_RATE], 
+    [StockM3].[OPEN_BAL] AS [OPEN_BAL], 
+    [StockM3].[BOM_CAT] AS [BOM_CAT], 
+    [StockM3].[STSPEC] AS [STSPEC], 
+    [StockM3].[TbField1] AS [TbField1], 
+    [StockM3].[TbField2] AS [TbField2], 
+    [StockM3].[TbField3] AS [TbField3], 
+    [StockM3].[TempOH] AS [TempOH], 
+    [StockM3].[fel1] AS [fel1], 
+    [StockM3].[fel2] AS [fel2], 
+    [StockM3].[fel3] AS [fel3], 
+    [StockM3].[SPCL_SOLD] AS [SPCL_SOLD], 
+    [StockM3].[SP1] AS [SP1], 
+    [StockM3].[SP2] AS [SP2], 
+    [StockM3].[SP3] AS [SP3], 
+    [StockM3].[SP4] AS [SP4], 
+    [StockM3].[SP5] AS [SP5], 
+    [StockM3].[SP6] AS [SP6], 
+    [StockM3].[SP7] AS [SP7], 
+    [StockM3].[WART_START] AS [WART_START], 
+    [StockM3].[WART_END] AS [WART_END], 
+    [StockM3].[WART_PRD] AS [WART_PRD], 
+    [StockM3].[SEQ_NO] AS [SEQ_NO], 
+    [StockM3].[LAST_ORDER] AS [LAST_ORDER], 
+    [StockM3].[LAST_SUPP] AS [LAST_SUPP], 
+    [StockM3].[ORD_QTY] AS [ORD_QTY], 
+    [StockM3].[ORD_COST] AS [ORD_COST], 
+    [StockM3].[SPCL_COUNTER] AS [SPCL_COUNTER], 
+    [StockM3].[EXPORT_CODE] AS [EXPORT_CODE], 
+    [StockM3].[LOC_CODE] AS [LOC_CODE], 
+    [StockM3].[LOC_YN] AS [LOC_YN], 
+    [StockM3].[LOC_START] AS [LOC_START], 
+    [StockM3].[LOC_ENDS] AS [LOC_ENDS], 
+    [StockM3].[GL_CODE] AS [GL_CODE], 
+    [StockM3].[SHELF_LIFE] AS [SHELF_LIFE], 
+    [StockM3].[CASH_DEFDIS] AS [CASH_DEFDIS], 
+    [StockM3].[DECML_ITEMYN] AS [DECML_ITEMYN], 
+    [StockM3].[CASH_ITEMYN] AS [CASH_ITEMYN], 
+    [StockM3].[CRDT_ITEMYN] AS [CRDT_ITEMYN], 
+    [StockM3].[CASH_QUOTYN] AS [CASH_QUOTYN], 
+    [StockM3].[CRDT_QUOTYN] AS [CRDT_QUOTYN], 
+    [StockM3].[NEG_ITEMYN] AS [NEG_ITEMYN], 
+    [StockM3].[MST_ITEM] AS [MST_ITEM], 
+    [StockM3].[MST_QTY] AS [MST_QTY], 
+    [StockM3].[SPCLTIME_FROM] AS [SPCLTIME_FROM], 
+    [StockM3].[SPCLTIME_TO] AS [SPCLTIME_TO], 
+    [StockM3].[CHILDAT_SALEYN] AS [CHILDAT_SALEYN], 
+    [StockM3].[CHILDAT_GRVYN] AS [CHILDAT_GRVYN], 
+    [StockM3].[PRNT_QTY] AS [PRNT_QTY], 
+    [StockM3].[ITEM_PRNTYN] AS [ITEM_PRNTYN], 
+    [StockM3].[ITEM_PRNT] AS [ITEM_PRNT], 
+    [StockM3].[ITEM_CODE1] AS [ITEM_CODE1], 
+    [StockM3].[LINK_QTY] AS [LINK_QTY], 
+    [StockM3].[PLUITEM_YN] AS [PLUITEM_YN], 
+    [StockM3].[COMBO_YN] AS [COMBO_YN], 
+    [StockM3].[SUPP_REF] AS [SUPP_REF], 
+    [StockM3].[INV_CASEQTY] AS [INV_CASEQTY], 
+    [StockM3].[PU_NO] AS [PU_NO], 
+    [StockM3].[PU_desc] AS [PU_desc], 
+    [StockM3].[LAST_MONDATE] AS [LAST_MONDATE], 
+    [StockM3].[LAST_YEARDATE] AS [LAST_YEARDATE], 
+    [StockM3].[GL_SALES] AS [GL_SALES], 
+    [StockM3].[GL_COSAL] AS [GL_COSAL], 
+    [StockM3].[GL_PUCHS] AS [GL_PUCHS], 
+    [StockM3].[SQM_QTY] AS [SQM_QTY], 
+    [StockM3].[BUY_QTY] AS [BUY_QTY], 
+    [StockM3].[GIVE_QTY] AS [GIVE_QTY], 
+    [StockM3].[DEDUCT_CODE] AS [DEDUCT_CODE], 
+    [StockM3].[DEDUCT_QTY] AS [DEDUCT_QTY], 
+    [StockM3].[SERLNO_YN] AS [SERLNO_YN], 
+    [StockM3].[ITEM_CODE2] AS [ITEM_CODE2], 
+    [StockM3].[ITEM_CODE3] AS [ITEM_CODE3], 
+    [StockM3].[ITEM_CODE4] AS [ITEM_CODE4], 
+    [StockM3].[ITEM_CODE5] AS [ITEM_CODE5], 
+    [StockM3].[PWD_MUP] AS [PWD_MUP]
+    FROM [dbo].[StockM3] AS [StockM3]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_SECTION1_SECTION1" Association="Self.FK_SECTION1_SECTION1">
+            <End Role="SECTION1" EntitySet="SECTION1" />
+            <End Role="SECTION11" EntitySet="SECTION1" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="eTillModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="StockM3">
+          <Key>
+            <PropertyRef Name="ITEMCODE" />
+          </Key>
+          <Property Name="ITEMCODE" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DESCRPTON1" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="DESCRPTON2" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="SUPPLIER" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="Q_IN_HAND" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="COST" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="STD_COST" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="LAST_COST" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="TAX_YN" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="TAX1" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="MUP" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="B_RETAIL" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="RETAIL" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="NET" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="MAX_DISC" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="PRICEA" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="PRICEB" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="PRICEC" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="PRICED" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="PRICEE" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="SECTION1" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="SECTION2" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="SECTION3" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="SECTION4" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="SECTION5" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="TYPE" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="CASE_QTY" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="WRAP_QTY" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="RO_LEVEL" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="MAX_OHAND" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="NEG_POS" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="ITEM1" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="ITEM2" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="LAST_PCHS" Type="DateTime" Precision="3" />
+          <Property Name="LAST_ISSU" Type="DateTime" Precision="3" />
+          <Property Name="SDATE_FROM" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="SDATE_TO" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="SPCL_OQTY" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="SPCL_QTY" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="SPCL_EXCL" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="SPCL_INCL" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="E_DATE" Type="DateTime" Precision="3" />
+          <Property Name="TERMINAL" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="USER" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="OH_CORDER" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="OH_SORDER" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="T1_RATE" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="OPEN_BAL" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="BOM_CAT" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="STSPEC" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="TbField1" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="TbField2" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="TbField3" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="TempOH" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="fel1" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="fel2" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="fel3" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="SPCL_SOLD" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="SP1" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="SP2" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="SP3" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="SP4" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="SP5" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="SP6" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="SP7" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="WART_START" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
+          <Property Name="WART_END" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
+          <Property Name="WART_PRD" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="SEQ_NO" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="LAST_ORDER" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
+          <Property Name="LAST_SUPP" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="ORD_QTY" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="ORD_COST" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="SPCL_COUNTER" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
+          <Property Name="EXPORT_CODE" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="LOC_CODE" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+          <Property Name="LOC_YN" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="LOC_START" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
+          <Property Name="LOC_ENDS" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
+          <Property Name="GL_CODE" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="SHELF_LIFE" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="CASH_DEFDIS" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="DECML_ITEMYN" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="CASH_ITEMYN" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="CRDT_ITEMYN" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="CASH_QUOTYN" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="CRDT_QUOTYN" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="NEG_ITEMYN" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="MST_ITEM" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="MST_QTY" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="SPCLTIME_FROM" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="SPCLTIME_TO" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="CHILDAT_SALEYN" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="CHILDAT_GRVYN" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="PRNT_QTY" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="ITEM_PRNTYN" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="ITEM_PRNT" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="ITEM_CODE1" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="LINK_QTY" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="PLUITEM_YN" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="COMBO_YN" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="SUPP_REF" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="INV_CASEQTY" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="PU_NO" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="PU_desc" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="LAST_MONDATE" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
+          <Property Name="LAST_YEARDATE" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
+          <Property Name="GL_SALES" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="GL_COSAL" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="GL_PUCHS" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="SQM_QTY" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="BUY_QTY" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="GIVE_QTY" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="DEDUCT_CODE" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="DEDUCT_QTY" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="SERLNO_YN" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="ITEM_CODE2" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="ITEM_CODE3" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="ITEM_CODE4" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="ITEM_CODE5" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="PWD_MUP" Type="Decimal" Precision="19" Scale="4" />
+        </EntityType>
+        <EntityContainer Name="eTillEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="StockM3" EntityType="Self.StockM3" />
+          <EntitySet Name="SECTION1" EntityType="eTillModel.SECTION1" />
+          <AssociationSet Name="FK_SECTION1_SECTION1" Association="eTillModel.FK_SECTION1_SECTION1">
+            <End Role="SECTION1" EntitySet="SECTION1" />
+            <End Role="SECTION11" EntitySet="SECTION1" />
+          </AssociationSet>
+          <EntitySet Name="Countries" EntityType="eTillModel.Country" />
+          <EntitySet Name="States" EntityType="eTillModel.State" />
+        </EntityContainer>
+        <EntityType Name="SECTION1">
+          <Key>
+            <PropertyRef Name="SecId" />
+          </Key>
+          <Property Name="SecId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CODE" Type="String" Nullable="false" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Name="NAME" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="NAME1" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="PU_NO" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="PU_DESC" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="SECTION11" Relationship="eTillModel.FK_SECTION1_SECTION1" FromRole="SECTION1" ToRole="SECTION11" />
+          <NavigationProperty Name="SECTION12" Relationship="eTillModel.FK_SECTION1_SECTION1" FromRole="SECTION11" ToRole="SECTION1" />
+        </EntityType>
+        <Association Name="FK_SECTION1_SECTION1">
+          <End Type="eTillModel.SECTION1" Role="SECTION1" Multiplicity="1" />
+          <End Type="eTillModel.SECTION1" Role="SECTION11" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="SECTION1">
+              <PropertyRef Name="SecId" />
+            </Principal>
+            <Dependent Role="SECTION11">
+              <PropertyRef Name="SecId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Country">
+          <Key>
+            <PropertyRef Name="CountryId" />
+          </Key>
+          <Property Name="CountryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CountryName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="State">
+          <Key>
+            <PropertyRef Name="StateId" />
+          </Key>
+          <Property Name="StateId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StateName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CountryId" Type="Int32" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="eTillModelStoreContainer" CdmEntityContainer="eTillEntities">
+          <EntitySetMapping Name="StockM3">
+            <EntityTypeMapping TypeName="eTillModel.StockM3">
+              <MappingFragment StoreEntitySet="StockM3">
+                <ScalarProperty Name="ITEMCODE" ColumnName="ITEMCODE" />
+                <ScalarProperty Name="DESCRPTON1" ColumnName="DESCRPTON1" />
+                <ScalarProperty Name="DESCRPTON2" ColumnName="DESCRPTON2" />
+                <ScalarProperty Name="SUPPLIER" ColumnName="SUPPLIER" />
+                <ScalarProperty Name="Q_IN_HAND" ColumnName="Q_IN_HAND" />
+                <ScalarProperty Name="COST" ColumnName="COST" />
+                <ScalarProperty Name="STD_COST" ColumnName="STD_COST" />
+                <ScalarProperty Name="LAST_COST" ColumnName="LAST_COST" />
+                <ScalarProperty Name="TAX_YN" ColumnName="TAX_YN" />
+                <ScalarProperty Name="TAX1" ColumnName="TAX1" />
+                <ScalarProperty Name="MUP" ColumnName="MUP" />
+                <ScalarProperty Name="B_RETAIL" ColumnName="B_RETAIL" />
+                <ScalarProperty Name="RETAIL" ColumnName="RETAIL" />
+                <ScalarProperty Name="NET" ColumnName="NET" />
+                <ScalarProperty Name="MAX_DISC" ColumnName="MAX_DISC" />
+                <ScalarProperty Name="PRICEA" ColumnName="PRICEA" />
+                <ScalarProperty Name="PRICEB" ColumnName="PRICEB" />
+                <ScalarProperty Name="PRICEC" ColumnName="PRICEC" />
+                <ScalarProperty Name="PRICED" ColumnName="PRICED" />
+                <ScalarProperty Name="PRICEE" ColumnName="PRICEE" />
+                <ScalarProperty Name="SECTION1" ColumnName="SECTION1" />
+                <ScalarProperty Name="SECTION2" ColumnName="SECTION2" />
+                <ScalarProperty Name="SECTION3" ColumnName="SECTION3" />
+                <ScalarProperty Name="SECTION4" ColumnName="SECTION4" />
+                <ScalarProperty Name="SECTION5" ColumnName="SECTION5" />
+                <ScalarProperty Name="TYPE" ColumnName="TYPE" />
+                <ScalarProperty Name="CASE_QTY" ColumnName="CASE_QTY" />
+                <ScalarProperty Name="WRAP_QTY" ColumnName="WRAP_QTY" />
+                <ScalarProperty Name="RO_LEVEL" ColumnName="RO_LEVEL" />
+                <ScalarProperty Name="MAX_OHAND" ColumnName="MAX_OHAND" />
+                <ScalarProperty Name="NEG_POS" ColumnName="NEG_POS" />
+                <ScalarProperty Name="ITEM1" ColumnName="ITEM1" />
+                <ScalarProperty Name="ITEM2" ColumnName="ITEM2" />
+                <ScalarProperty Name="LAST_PCHS" ColumnName="LAST_PCHS" />
+                <ScalarProperty Name="LAST_ISSU" ColumnName="LAST_ISSU" />
+                <ScalarProperty Name="SDATE_FROM" ColumnName="SDATE_FROM" />
+                <ScalarProperty Name="SDATE_TO" ColumnName="SDATE_TO" />
+                <ScalarProperty Name="SPCL_OQTY" ColumnName="SPCL_OQTY" />
+                <ScalarProperty Name="SPCL_QTY" ColumnName="SPCL_QTY" />
+                <ScalarProperty Name="SPCL_EXCL" ColumnName="SPCL_EXCL" />
+                <ScalarProperty Name="SPCL_INCL" ColumnName="SPCL_INCL" />
+                <ScalarProperty Name="E_DATE" ColumnName="E_DATE" />
+                <ScalarProperty Name="TERMINAL" ColumnName="TERMINAL" />
+                <ScalarProperty Name="USER" ColumnName="USER" />
+                <ScalarProperty Name="OH_CORDER" ColumnName="OH_CORDER" />
+                <ScalarProperty Name="OH_SORDER" ColumnName="OH_SORDER" />
+                <ScalarProperty Name="T1_RATE" ColumnName="T1_RATE" />
+                <ScalarProperty Name="OPEN_BAL" ColumnName="OPEN_BAL" />
+                <ScalarProperty Name="BOM_CAT" ColumnName="BOM_CAT" />
+                <ScalarProperty Name="STSPEC" ColumnName="STSPEC" />
+                <ScalarProperty Name="TbField1" ColumnName="TbField1" />
+                <ScalarProperty Name="TbField2" ColumnName="TbField2" />
+                <ScalarProperty Name="TbField3" ColumnName="TbField3" />
+                <ScalarProperty Name="TempOH" ColumnName="TempOH" />
+                <ScalarProperty Name="fel1" ColumnName="fel1" />
+                <ScalarProperty Name="fel2" ColumnName="fel2" />
+                <ScalarProperty Name="fel3" ColumnName="fel3" />
+                <ScalarProperty Name="SPCL_SOLD" ColumnName="SPCL_SOLD" />
+                <ScalarProperty Name="SP1" ColumnName="SP1" />
+                <ScalarProperty Name="SP2" ColumnName="SP2" />
+                <ScalarProperty Name="SP3" ColumnName="SP3" />
+                <ScalarProperty Name="SP4" ColumnName="SP4" />
+                <ScalarProperty Name="SP5" ColumnName="SP5" />
+                <ScalarProperty Name="SP6" ColumnName="SP6" />
+                <ScalarProperty Name="SP7" ColumnName="SP7" />
+                <ScalarProperty Name="WART_START" ColumnName="WART_START" />
+                <ScalarProperty Name="WART_END" ColumnName="WART_END" />
+                <ScalarProperty Name="WART_PRD" ColumnName="WART_PRD" />
+                <ScalarProperty Name="SEQ_NO" ColumnName="SEQ_NO" />
+                <ScalarProperty Name="LAST_ORDER" ColumnName="LAST_ORDER" />
+                <ScalarProperty Name="LAST_SUPP" ColumnName="LAST_SUPP" />
+                <ScalarProperty Name="ORD_QTY" ColumnName="ORD_QTY" />
+                <ScalarProperty Name="ORD_COST" ColumnName="ORD_COST" />
+                <ScalarProperty Name="SPCL_COUNTER" ColumnName="SPCL_COUNTER" />
+                <ScalarProperty Name="EXPORT_CODE" ColumnName="EXPORT_CODE" />
+                <ScalarProperty Name="LOC_CODE" ColumnName="LOC_CODE" />
+                <ScalarProperty Name="LOC_YN" ColumnName="LOC_YN" />
+                <ScalarProperty Name="LOC_START" ColumnName="LOC_START" />
+                <ScalarProperty Name="LOC_ENDS" ColumnName="LOC_ENDS" />
+                <ScalarProperty Name="GL_CODE" ColumnName="GL_CODE" />
+                <ScalarProperty Name="SHELF_LIFE" ColumnName="SHELF_LIFE" />
+                <ScalarProperty Name="CASH_DEFDIS" ColumnName="CASH_DEFDIS" />
+                <ScalarProperty Name="DECML_ITEMYN" ColumnName="DECML_ITEMYN" />
+                <ScalarProperty Name="CASH_ITEMYN" ColumnName="CASH_ITEMYN" />
+                <ScalarProperty Name="CRDT_ITEMYN" ColumnName="CRDT_ITEMYN" />
+                <ScalarProperty Name="CASH_QUOTYN" ColumnName="CASH_QUOTYN" />
+                <ScalarProperty Name="CRDT_QUOTYN" ColumnName="CRDT_QUOTYN" />
+                <ScalarProperty Name="NEG_ITEMYN" ColumnName="NEG_ITEMYN" />
+                <ScalarProperty Name="MST_ITEM" ColumnName="MST_ITEM" />
+                <ScalarProperty Name="MST_QTY" ColumnName="MST_QTY" />
+                <ScalarProperty Name="SPCLTIME_FROM" ColumnName="SPCLTIME_FROM" />
+                <ScalarProperty Name="SPCLTIME_TO" ColumnName="SPCLTIME_TO" />
+                <ScalarProperty Name="CHILDAT_SALEYN" ColumnName="CHILDAT_SALEYN" />
+                <ScalarProperty Name="CHILDAT_GRVYN" ColumnName="CHILDAT_GRVYN" />
+                <ScalarProperty Name="PRNT_QTY" ColumnName="PRNT_QTY" />
+                <ScalarProperty Name="ITEM_PRNTYN" ColumnName="ITEM_PRNTYN" />
+                <ScalarProperty Name="ITEM_PRNT" ColumnName="ITEM_PRNT" />
+                <ScalarProperty Name="ITEM_CODE1" ColumnName="ITEM_CODE1" />
+                <ScalarProperty Name="LINK_QTY" ColumnName="LINK_QTY" />
+                <ScalarProperty Name="PLUITEM_YN" ColumnName="PLUITEM_YN" />
+                <ScalarProperty Name="COMBO_YN" ColumnName="COMBO_YN" />
+                <ScalarProperty Name="SUPP_REF" ColumnName="SUPP_REF" />
+                <ScalarProperty Name="INV_CASEQTY" ColumnName="INV_CASEQTY" />
+                <ScalarProperty Name="PU_NO" ColumnName="PU_NO" />
+                <ScalarProperty Name="PU_desc" ColumnName="PU_desc" />
+                <ScalarProperty Name="LAST_MONDATE" ColumnName="LAST_MONDATE" />
+                <ScalarProperty Name="LAST_YEARDATE" ColumnName="LAST_YEARDATE" />
+                <ScalarProperty Name="GL_SALES" ColumnName="GL_SALES" />
+                <ScalarProperty Name="GL_COSAL" ColumnName="GL_COSAL" />
+                <ScalarProperty Name="GL_PUCHS" ColumnName="GL_PUCHS" />
+                <ScalarProperty Name="SQM_QTY" ColumnName="SQM_QTY" />
+                <ScalarProperty Name="BUY_QTY" ColumnName="BUY_QTY" />
+                <ScalarProperty Name="GIVE_QTY" ColumnName="GIVE_QTY" />
+                <ScalarProperty Name="DEDUCT_CODE" ColumnName="DEDUCT_CODE" />
+                <ScalarProperty Name="DEDUCT_QTY" ColumnName="DEDUCT_QTY" />
+                <ScalarProperty Name="SERLNO_YN" ColumnName="SERLNO_YN" />
+                <ScalarProperty Name="ITEM_CODE2" ColumnName="ITEM_CODE2" />
+                <ScalarProperty Name="ITEM_CODE3" ColumnName="ITEM_CODE3" />
+                <ScalarProperty Name="ITEM_CODE4" ColumnName="ITEM_CODE4" />
+                <ScalarProperty Name="ITEM_CODE5" ColumnName="ITEM_CODE5" />
+                <ScalarProperty Name="PWD_MUP" ColumnName="PWD_MUP" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SECTION1">
+            <EntityTypeMapping TypeName="eTillModel.SECTION1">
+              <MappingFragment StoreEntitySet="SECTION1">
+                <ScalarProperty Name="PU_DESC" ColumnName="PU_DESC" />
+                <ScalarProperty Name="PU_NO" ColumnName="PU_NO" />
+                <ScalarProperty Name="NAME1" ColumnName="NAME1" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="CODE" ColumnName="CODE" />
+                <ScalarProperty Name="SecId" ColumnName="SecId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Countries">
+            <EntityTypeMapping TypeName="eTillModel.Country">
+              <MappingFragment StoreEntitySet="Country">
+                <ScalarProperty Name="CountryName" ColumnName="CountryName" />
+                <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="States">
+            <EntityTypeMapping TypeName="eTillModel.State">
+              <MappingFragment StoreEntitySet="State">
+                <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+                <ScalarProperty Name="StateName" ColumnName="StateName" />
+                <ScalarProperty Name="StateId" ColumnName="StateId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

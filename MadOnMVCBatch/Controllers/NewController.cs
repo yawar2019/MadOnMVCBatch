@@ -326,5 +326,49 @@ namespace MadOnMVCBatch.Controllers
            
             return RedirectToRoute("Nidhi");
         }
+
+        public ViewResult GetData()
+        {
+            EmployeeModel emp= new EmployeeModel();
+            emp.EmpId = 3;
+            emp.EmpName = "jawahar";
+            emp.EmpSalary = 99653;
+            return View(emp);
+        }
+
+        public ViewResult GetData2()
+        {
+             
+            return View();
+        }
+        eTillEntities db = new Models.eTillEntities();
+
+        public ActionResult GetHtmlHelperExample()
+        {
+
+            ViewBag.Stock =new SelectList(db.SECTION1,"SECID","NAME",5);
+            return View();
+        }
+
+        public ActionResult RegistrationMethod()
+        {
+            ViewBag.Country = new SelectList(db.Countries, "CountryId", "CountryName");
+
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult RegistrationMethod(RegistrationModel reg)
+        {
+            ViewBag.Country = new SelectList(db.Countries, "CountryId", "CountryName");
+
+            return View();
+        }
+
+        public JsonResult getState(int? id)
+        {
+            var state = db.States.Where(x => x.CountryId == id).ToList();
+            return Json(state,JsonRequestBehavior.AllowGet);
+        }
     }
 }
