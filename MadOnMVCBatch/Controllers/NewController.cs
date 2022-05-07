@@ -1,4 +1,5 @@
-﻿using MadOnMVCBatch.Models;
+﻿using MadOnMVCBatch.FiltersExample;
+using MadOnMVCBatch.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,6 +8,7 @@ using System.Web.Mvc;
 
 namespace MadOnMVCBatch.Controllers
 {
+    
     public class NewController : Controller
     {
         // GET: New Work for vaishnavi is created on 21-03-2022
@@ -360,15 +362,33 @@ namespace MadOnMVCBatch.Controllers
         [HttpPost]
         public ActionResult RegistrationMethod(RegistrationModel reg)
         {
+
+            if (ModelState.IsValid)
+            {
+
+            }
+            else
+            {
+
+            }
+
+
             ViewBag.Country = new SelectList(db.Countries, "CountryId", "CountryName");
 
             return View();
         }
-
+      
         public JsonResult getState(int? id)
         {
+             
             var state = db.States.Where(x => x.CountryId == id).ToList();
             return Json(state,JsonRequestBehavior.AllowGet);
+        }
+        [CustomFilter]
+        public ActionResult GetIplWinner()
+        {
+            ViewBag.Team = "Preeti Punjab";
+            return View();
         }
     }
 }

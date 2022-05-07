@@ -1,5 +1,5 @@
 ﻿@model MadOnMVCBatch.Models.RegistrationModel
-
+@using MadOnMVCBatch.UserDefinedControls
 @{
     ViewBag.Title = "RegistrationMethod";
     Layout = "~/Views/Shared/_MyLayout.cshtml";
@@ -15,14 +15,14 @@
 <div class="form-horizontal">
     <h4>RegistrationModel</h4>
     <hr />
-    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.ValidationSummary(false, "", new { @class = "text-danger" })
 
 
     <div class="form-group">
         @Html.LabelFor(model => model.EmpName, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
             @Html.TextBoxFor(model => model.EmpName, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.EmpName, "", new { @class = "text-danger" })
+            @Html.ValidationMessageFor(model => model.EmpName, " ", new { @class = "text-danger" })
         </div>
     </div>
 
@@ -30,7 +30,7 @@
         @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
             @Html.PasswordFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+            @Html.ValidationMessageFor(model => model.Password, " ", new { @class = "text-danger" })
         </div>
     </div>
 
@@ -38,7 +38,7 @@
         @Html.LabelFor(model => model.ConfirmPassword, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
             @Html.PasswordFor(model => model.ConfirmPassword, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.ConfirmPassword, "", new { @class = "text-danger" })
+            @Html.ValidationMessageFor(model => model.ConfirmPassword, " ", new { @class = "text-danger" })
         </div>
     </div>
 
@@ -56,7 +56,7 @@
         @Html.LabelFor(model => model.Country, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
             @Html.DropDownListFor(model => model.Country,(IEnumerable<SelectListItem>)ViewBag.Country, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.Country, "", new { @class = "text-danger" })
+            @Html.ValidationMessageFor(model => model.Country, " ", new { @class = "text-danger" })
         </div>
     </div>
 
@@ -65,15 +65,15 @@
         @Html.LabelFor(model => model.State, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
            @* @Html.DropDownListFor(model => model.State, null, new { htmlAttributes = new { @class = "form-control" } })*@
-            <select id="State"></select>
-            @Html.ValidationMessageFor(model => model.State, "", new { @class = "text-danger" })
+            <select id="State" name="State"></select>
+            @Html.ValidationMessageFor(model => model.State, " ", new { @class = "text-danger" })
         </div>
     </div>
     <div class="form-group">
         @Html.LabelFor(model => model.Address, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
             @Html.TextAreaFor(model => model.Address,10,18, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
+            @Html.ValidationMessageFor(model => model.Address, " ", new { @class = "text-danger" })
         </div>
     </div>
 
@@ -85,13 +85,29 @@
 </div>
 }
 
+@MyControl.MyLabel("FirstName")<br />
+@MyControl.MyLabel("LastName")<br />
+@Html.createUrControl("text","red")<br />
+@Html.createUrControl("file")<br />
+@Html.createUrControl("radio")<br />
+@Html.createUrControl("checkbox")<br />
+
+@helper labelbyrazzorcode(string content)
+{
+    <label>@content</label>
+}
+@labelbyrazzorcode("Welcome")
+
+
+
+
 <div>
     @Html.ActionLink("Back to List", "Index")
 </div>
 
-<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+@*<script src="~/Scripts/jquery-1.10.2.min.js"></script>
 <script src="~/Scripts/jquery.validate.min.js"></script>
-<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>*@
 
 
 <script>
