@@ -7,7 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using ModelFirstApproach.Models;
-
+using ModelFirstApproach.ServiceReference1;
 namespace ModelFirstApproach.Controllers
 {
     public class EmployeesController : Controller
@@ -122,6 +122,34 @@ namespace ModelFirstApproach.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+
+        public ActionResult getData()
+        {
+            ServiceReference1.WebService1SoapClient sopObj = new WebService1SoapClient();
+
+            return Content(sopObj.Add(12,18).ToString());
+        }
+        public ActionResult getData2()
+        {
+            ServiceReference2.Service1Client sopObj = new ServiceReference2.Service1Client();
+
+            return Content(sopObj.Add(12, 18).ToString());
+        }
+
+        public ActionResult getData3()
+        {
+            NidhiServiceReference.Service1Client sopObj = new NidhiServiceReference.Service1Client("WSHttpBinding_IService1");
+
+            return Content(sopObj.Add(12, 18).ToString());
+        }
+
+        public ActionResult getData4()
+        {
+            NidhiServiceReference.Service1Client sopObj = new NidhiServiceReference.Service1Client("NetTcpBinding_IService1");
+
+            return Content(sopObj.Add(12, 18).ToString());
         }
     }
 }

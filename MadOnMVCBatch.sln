@@ -14,6 +14,20 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeFirstApproach", "CodeFirstApproach\CodeFirstApproach.csproj", "{8C46CDD3-C2A7-412E-94EE-092923B6849A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModelFirstApproach", "ModelFirstApproach\ModelFirstApproach.csproj", "{99C70F11-E616-49D8-911D-04F7D977A7CF}"
+	ProjectSection(ProjectDependencies) = postProject
+		{1F12212A-87DF-4A47-B529-58CA68481085} = {1F12212A-87DF-4A47-B529-58CA68481085}
+		{320CD643-AEEB-4DA3-9D96-16C8D48A6A11} = {320CD643-AEEB-4DA3-9D96-16C8D48A6A11}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HandleErrorAttributeExample", "HandleErrorAttributeExample\HandleErrorAttributeExample.csproj", "{BDE81BF7-64A5-4A3A-9708-C26C11E74F16}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HandleErrorExample2", "HandleErrorExample2\HandleErrorExample2.csproj", "{81EB05F8-B15E-41E0-8681-3A980A9DA415}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebServicesExample", "WebServicesExample\WebServicesExample.csproj", "{1F12212A-87DF-4A47-B529-58CA68481085}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WcfServiceExample", "WcfServiceExample\WcfServiceExample.csproj", "{8DBAB2CB-9605-4561-920A-B1FADFF5431B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WcfService2", "WcfService2\WcfService2.csproj", "{320CD643-AEEB-4DA3-9D96-16C8D48A6A11}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +59,26 @@ Global
 		{99C70F11-E616-49D8-911D-04F7D977A7CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{99C70F11-E616-49D8-911D-04F7D977A7CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{99C70F11-E616-49D8-911D-04F7D977A7CF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BDE81BF7-64A5-4A3A-9708-C26C11E74F16}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BDE81BF7-64A5-4A3A-9708-C26C11E74F16}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BDE81BF7-64A5-4A3A-9708-C26C11E74F16}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BDE81BF7-64A5-4A3A-9708-C26C11E74F16}.Release|Any CPU.Build.0 = Release|Any CPU
+		{81EB05F8-B15E-41E0-8681-3A980A9DA415}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81EB05F8-B15E-41E0-8681-3A980A9DA415}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81EB05F8-B15E-41E0-8681-3A980A9DA415}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81EB05F8-B15E-41E0-8681-3A980A9DA415}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1F12212A-87DF-4A47-B529-58CA68481085}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1F12212A-87DF-4A47-B529-58CA68481085}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1F12212A-87DF-4A47-B529-58CA68481085}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1F12212A-87DF-4A47-B529-58CA68481085}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8DBAB2CB-9605-4561-920A-B1FADFF5431B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8DBAB2CB-9605-4561-920A-B1FADFF5431B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8DBAB2CB-9605-4561-920A-B1FADFF5431B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8DBAB2CB-9605-4561-920A-B1FADFF5431B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{320CD643-AEEB-4DA3-9D96-16C8D48A6A11}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{320CD643-AEEB-4DA3-9D96-16C8D48A6A11}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{320CD643-AEEB-4DA3-9D96-16C8D48A6A11}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{320CD643-AEEB-4DA3-9D96-16C8D48A6A11}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
